@@ -8,10 +8,12 @@ namespace geometry
         ModelObject::ModelObject(ID const& p_id)
             : m_id(p_id)
             , m_root(this)
-        {}
+        {
+        }
 
         ModelObject::~ModelObject()
-        {}
+        {
+        }
 
         const ModelObject* ModelObject::GetRoot() const
         {
@@ -52,14 +54,15 @@ namespace geometry
             Finder(ID const& p_id)
                 : target(p_id)
                 , found(nullptr)
-            {}
+            {
+            }
             virtual ~Finder() {}
 
             ID target;
             const ModelObject *found;
             virtual void Visit(ModelObject const& p_obj)
             {
-                if (p_obj.GetID() == target)
+                if(p_obj.GetID() == target)
                     found = &p_obj;
             }
         };
