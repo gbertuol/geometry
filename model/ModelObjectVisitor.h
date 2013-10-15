@@ -12,7 +12,8 @@ namespace geometry
         public:
             virtual ~ModelObjectVisitor();
 
-            virtual void Visit(ModelObject const&);
+            virtual void Visit(ModelObject const&)
+            {}
         };
     }
 }

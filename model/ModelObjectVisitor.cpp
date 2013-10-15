@@ -1,6 +1,11 @@
 #include "ModelObjectVisitor.h"
 
 
-geometry::model::ModelObjectVisitor::~ModelObjectVisitor()
+namespace geometry
 {
+    namespace model
+    {
+        ModelObjectVisitor::~ModelObjectVisitor()
+        {}
+    }
 }

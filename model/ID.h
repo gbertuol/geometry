@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <ostream>
 
 namespace geometry
 {
@@ -43,6 +44,27 @@ namespace geometry
         private:
             int m_sibling_count;
             std::vector<int> m_id;
+
+            friend bool operator==(ID const& p_lhs, ID const& p_rhs);
+            friend std::ostream& operator<<(std::ostream& p_out, ID const& p_id);
         };
+
+        inline bool operator==(ID const& p_lhs, ID const& p_rhs)
+        {
+            return p_lhs.m_id == p_rhs.m_id;
+        }
+        inline bool operator!=(ID const& p_lhs, ID const& p_rhs)
+        {
+            return !operator==(p_lhs, p_rhs);
+        }
+
+        inline std::ostream& operator<<(std::ostream &p_out, ID const& p_id)
+        {
+            p_out << "[";
+            for (auto it = p_id.m_id.begin(); it != p_id.m_id.end(); ++it)
+                p_out << *it << ",";
+            p_out << "]" << std::endl;
+            return p_out;
+        }
     }
 }
